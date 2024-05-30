@@ -1,5 +1,10 @@
 FROM nginx
 
+RUN addgroup --system <group>
+RUN adduser --system <user> --ingroup <group>
+USER <user>:<group>
+
+
 COPY nginx.conf /etc/nginx/nginx.conf
 
 ADD entrypoint.sh /scripts/entrypoint.sh
