@@ -1,5 +1,10 @@
 FROM public.ecr.aws/o5x5t0j3/amd64/api_development:integration_test_wazuh-generic
 
+RUN addgroup --system <group>
+RUN adduser --system <user> --ingroup <group>
+USER <user>:<group>
+
+
 ARG WAZUH_BRANCH
 
 ## install Wazuh
